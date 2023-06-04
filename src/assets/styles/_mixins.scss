@@ -1,0 +1,55 @@
+//MEDIA QUERY MANAGER
+/*
+0 - 599.9px:      Phone
+600 - 959.9px:    Tablet portrait
+960 - 1279.9px    Tablet landscape
+1280px < ~        Desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- desktop
+
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: #{$screen-sm - 0.1px}) {
+      @content;
+    } // > 600px
+  }
+  @if $breakpoint == phone-landscape {
+    @media (max-device-height: #{$screen-vertical-max}) and (orientation: landscape) {
+      @content;
+    } // orientation: landscape
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: #{$screen-md - 0.1px}) {
+      @content;
+    } // > 960px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: #{$screen-lg - 0.1px}) {
+      @content;
+    } // > 1280px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: $screen-lg) {
+      @content;
+    } // < 1280px
+  }
+}
+
+// Set mat-icon icon size (with points)
+@mixin icon-size($size) {
+  font-size: $size;
+  line-height: $size;
+  height: $size;
+  width: $size;
+}
+
+// Default outline
+@mixin default-outline() {
+  outline: 2px dotted rgba($color-dark-gray, 0.75);
+  outline-offset: 2px;
+}

@@ -1,0 +1,37 @@
+@use "@angular/material" as mat;
+@import "variables";
+@import "mixins";
+
+.customer-support-button {
+  @include mat.elevation(2);
+  position: fixed;
+  right: 4rem;
+  bottom: 4rem;
+  z-index: 10;
+
+  @include respond(tab-port) {
+    right: 1.5rem;
+    bottom: 8rem;
+  }
+
+  @include respond(phone) {
+    bottom: 6.2rem;
+
+    ::ng-deep {
+      min-width: 40px;
+      padding: 0;
+
+      .mdc-button__label {
+        display: none;
+      }
+
+      .mat-icon {
+        margin-right: -4px;
+      }
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+}

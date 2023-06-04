@@ -1,0 +1,65 @@
+<div class="chat-container">
+  <div
+    cdkDrag
+    cdkDragHandle
+    cdkDragRootElement=".cdk-overlay-pane"
+    cdkDragBoundary=".cdk-global-overlay-wrapper"
+    class="dialog-header chat-header"
+  >
+    <h1 mat-dialog-title>Chat with us</h1>
+
+    <button mat-icon-button class="close-button" mat-dialog-close>
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+
+  <div #chatRef class="chat-body">
+    <ng-container *ngIf="chatConversation?.length; else noMessages">
+      <div
+        *ngFor="let message of chatConversation"
+        class="message"
+        [class.from-user]="message.fromUser"
+      >
+        <span class="user-name">{{ message.person }}:</span>
+        {{ message.response }}
+      </div>
+
+      <div *ngIf="responseLoading" class="message">
+        <span class="user-name">{{ botName }}:</span>
+        <div class="chat-loading-wrapper">
+          <div class="dot-typing"></div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noMessages>
+      <div class="no-messages" translate>
+        Glory to Ukraine! Glory to the heroes!
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="chat-footer">
+    <ng-container [formGroup]="customerSupportForm">
+      <mat-form-field>
+        <mat-label translate>Ask us a question</mat-label>
+        <input
+          #inpRef
+          type="text"
+          matInput
+          formControlName="promptText"
+          (keydown.enter)="sendChatGptRequest()"
+        />
+      </mat-form-field>
+      <button
+        mat-icon-button
+        type="button"
+        color="primary"
+        aria-label="Send message"
+        [disabled]="!inpRef.value.length"
+        (click)="sendChatGptRequest()"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+</div>

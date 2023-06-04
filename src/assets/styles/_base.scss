@@ -1,0 +1,19 @@
+html {
+  font-size: var(--base-font-size);
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba($color-base, 0.25);
+
+  @include respond(phone) {
+    font-size: calc(var(--base-font-size) + 3 * ((100vw - 320px) / 680));
+  }
+}
+
+body {
+  font-family: $font-family;
+  font-size: $default-font-size;
+  font-weight: 400;
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow: hidden;
+}

@@ -1,0 +1,124 @@
+@use "@angular/material" as mat;
+@import "variables";
+@import "mixins";
+
+.chat-container {
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  cursor: all-scroll;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.chat-body {
+  background-color: $color-light-gray;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 8px 16px;
+  height: calc(86vh - 160px);
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-break: break-word;
+  -webkit-overflow-scrolling: touch;
+
+  .no-messages {
+    font-size: 14px;
+    padding-top: 10px;
+    text-align: center;
+  }
+}
+
+.message {
+  background-color: $color-yellow-primary;
+  color: $color-base;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  margin-right: 3.5rem;
+
+  .user-name {
+    font-family: $font-family-semibold;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &.from-user {
+    background-color: $color-blue-primary;
+    color: $color-white;
+    margin-right: 0;
+    margin-left: 3.5rem;
+  }
+}
+
+.chat-footer {
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 10px;
+
+  .mat-mdc-form-field {
+    flex-grow: 1;
+
+    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+}
+
+// Chat response loading
+.chat-loading-wrapper {
+  margin: 4px 0;
+  padding: 8px 16px 5px;
+}
+
+.dot-typing {
+  border-radius: 50%;
+  position: relative;
+  left: -9999px;
+  height: 6px;
+  width: 6px;
+  animation: dot-typing 1s infinite ease-out;
+  opacity: 0.75;
+}
+
+@keyframes dot-typing {
+  0% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+  33.333% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+  50% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px -10px 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+  66.667% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+  83.333% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px -10px 0 0 $color-base;
+  }
+  100% {
+    box-shadow: 9984px 0 0 0 $color-base, 9999px 0 0 0 $color-base,
+      10014px 0 0 0 $color-base;
+  }
+}

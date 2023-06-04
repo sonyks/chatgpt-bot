@@ -1,0 +1,87 @@
+/* Material dialog overwrites */
+$dialog-inner-space: 32px;
+$dialog-inner-space-mobile: 16px;
+
+.cdk-overlay-pane {
+  max-width: calc(100vw - $dialog-inner-space-mobile * 2) !important;
+
+  &.mat-dialog-customer-support-modal {
+    margin-right: 4rem;
+    margin-left: auto;
+
+    @include respond(tab-port) {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+.mat-mdc-dialog-container {
+  div.mdc-dialog__surface {
+    --mdc-dialog-container-shape: #{0};
+  }
+
+  .dialog-header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: $dialog-inner-space $dialog-inner-space 10px;
+    white-space: pre-wrap;
+
+    .mdc-dialog__title {
+      --mdc-dialog-subhead-font: #{$font-family-semibold};
+      --mdc-dialog-subhead-line-height: #{1.2};
+      --mdc-dialog-subhead-size: #{134%};
+      --mdc-dialog-subhead-weight: #{600};
+      --mdc-dialog-subhead-tracking: #{0};
+      flex: 1 1 auto;
+      margin: 0;
+      color: $color-base;
+      margin: 0;
+      padding: 0;
+
+      &::before {
+        display: none;
+      }
+
+      @include respond(phone) {
+        --mdc-dialog-subhead-size: #{123%};
+      }
+    }
+
+    .close-button {
+      margin-right: -15px;
+    }
+  }
+
+  div.mdc-dialog__content {
+    --mdc-dialog-supporting-text-font: #{$font-family};
+    --mdc-dialog-supporting-text-line-height: #{1.2};
+    --mdc-dialog-supporting-text-size: #{2rem};
+    --mdc-dialog-supporting-text-weight: #{400};
+    --mdc-dialog-supporting-tracking: #{0};
+    color: $color-base;
+    padding: 10px $dialog-inner-space;
+    word-break: break-word;
+  }
+
+  .mdc-dialog__actions {
+    gap: 8px;
+    padding: 10px $dialog-inner-space $dialog-inner-space;
+  }
+
+  @include respond(phone) {
+    .dialog-header {
+      padding: $dialog-inner-space-mobile $dialog-inner-space-mobile 10px;
+    }
+
+    div.mdc-dialog__content {
+      padding: 8px $dialog-inner-space-mobile;
+    }
+
+    .mdc-dialog__actions {
+      padding: 10px $dialog-inner-space-mobile $dialog-inner-space-mobile;
+    }
+  }
+}

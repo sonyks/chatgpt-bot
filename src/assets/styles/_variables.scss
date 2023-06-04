@@ -1,0 +1,39 @@
+:root {
+  --base-font-size: 10px;
+}
+
+$screen-sm: 600px;
+$screen-md: 960px;
+$screen-lg: 1280px;
+$screen-vertical-max: 460px;
+
+$button-height: 50px !default;
+$button-simple-height: 40px !default;
+
+$default-space-size: 15px !default;
+
+/* Page container */
+$page-space: $default-space-size;
+$page-space-mobile: 10px;
+
+/* Colors */
+$color-base: #212529;
+$color-blue-primary: #004bc1;
+$color-yellow-primary: #ffe358;
+
+$color-dark-gray: #6d727c;
+$color-gray: #c2c5cb;
+$color-light-gray: #f5f7fa;
+
+$color-black: #000;
+$color-white: #fff;
+
+// Font
+$font-family: "Proba Pro", "Roboto", Arial, sans-serif;
+$font-family-semibold: "Proba Pro Semibold", "Roboto", Arial, sans-serif;
+
+// Set of common variables
+$default-font-size: 1.8rem;
+$default-transition: 200ms linear;
+
+$content-width-limit: 720px;
